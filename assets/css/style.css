@@ -1,67 +1,87 @@
-body {
-  font-family: Arial, sans-serif;
-  background:#f4f9ff;
-  margin: 0;
-  padding: 0;
+/* Flexbox wrapper */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
-header {
-  text-align: center;
-  padding: 2rem;
-  background: #0077b6;
-  color: white;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-}
-
+/* Card Styling */
 .card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  flex: 1 1 calc(33.33% - 40px); /* 3 per row on large screens */
+  max-width: 320px;
+  background: #fff;
+  border-radius: 15px;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* Image Section */
+.card-image {
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-image img {
   transform: scale(1.05);
 }
 
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+/* Offer Badge */
+.offer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: crimson;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
+/* Content */
 .card-content {
-  padding: 1rem;
+  padding: 15px;
+  text-align: center;
 }
 
 .card-content h3 {
-  margin: 0 0 0.5rem;
+  margin: 10px 0;
+  font-size: 1.3rem;
   color: #333;
 }
 
 .card-content p {
+  font-size: 0.95rem;
   color: #555;
-  font-size: 0.9rem;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #0077b6;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: 0.2s;
+/* Rating */
+.rating {
+  color: gold;
+  font-size: 1.1rem;
 }
 
-.btn:hover {
-  background: #023e8a;
+/* Responsive: On mobile only 1 card per row */
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 100%;
+  }
 }

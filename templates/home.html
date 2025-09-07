@@ -1,0 +1,18 @@
+{% load static %}
+{% static "images" as baseUrl %}
+{% block content %}
+ <div class="container">
+    {% for dest in dests%}
+    <div class="card">
+      <img src="{{baseUrl}}/{{dest.image}}" alt="Paris">
+      <div class="card-content">
+        <span class="offer">Offer</span>
+        <h3>{{dest.name}}</h3>
+        <p>{{dest.desc}}</p>
+        <h3>from: {{dest.price}}$</h3>
+        <a href="#" class="btn">Explore</a>
+      </div>
+    </div>
+    {% endfor%}
+ </div>
+{% endblock %}
