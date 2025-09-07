@@ -1,0 +1,35 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel-Destinations</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <header>
+    <h1>Explore the World 🌍</h1>
+    <p>Choose your next adventure</p>
+  </header>
+
+  <div class="container">
+    {% for dest in dests%}
+    <div class="card">
+      
+      <!-- <img src="{% static 'images/kashmir.jpg'%}" alt="New York"> -->
+      <img src="{{baseUrl}}/{{dest.image}}" alt="{{dest.name}}" ><span class="btn" style="background-color: black; color: white; margin-left:5px;">offer</span>
+      <div class="card-content">
+        <h3>{{dest.name}}</h3>
+        <p>{{dest.desc}}</p>
+        <h3>From:{{dest.price}}-$</h3>
+        <a href="#" class="btn">Explore</a> 
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>
