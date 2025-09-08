@@ -1,12 +1,14 @@
 {% load static %}
-{% static "images" as baseUrl %}
+<!-- {% static "images" as baseUrl %} -->
 {% block content %}
  <div class="container">
     {% for dest in dests%}
     <div class="card">
-      <img src="{{baseUrl}}/{{dest.image}}" alt="Paris">
+      <img src="{{dest.image.url}}" alt="Paris">
       <div class="card-content">
-        <span class="offer">Offer</span>
+        {% if dest.offer%}
+        <span class="offer btn">Offer</span>
+        {% endif %}
         <h3>{{dest.name}}</h3>
         <p>{{dest.desc}}</p>
         <h3>from: {{dest.price}}$</h3>
