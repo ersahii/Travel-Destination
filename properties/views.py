@@ -8,6 +8,7 @@ def index(request):
     dest1.desc = "Tropical paradise"
     dest1.price = 500
     dest1.image = "bali.jpg"
+    dest1.offer = False
 
     dest2 = Destination()
     dest2.id = 2
@@ -15,6 +16,7 @@ def index(request):
     dest2.desc = "City of Lights"
     dest2.price = 800
     dest2.image = "paris.jpg"
+    dest2.offer = False
 
     dest3 = Destination()
     dest3.id = 3
@@ -22,6 +24,7 @@ def index(request):
     dest3.desc = "Heaven on earth"
     dest3.price = 600
     dest3.image = "kashmir.jpg"
+    dest3.offer = True
 
     dest4 = Destination()
     dest4.id = 4
@@ -29,6 +32,7 @@ def index(request):
     dest4.desc = "Luxury in the desert"
     dest4.price = 700
     dest4.image = "paris.jpg"
+    dest4.offer = False
 
     dest5 = Destination()
     dest5.id = 5
@@ -36,6 +40,7 @@ def index(request):
     dest5.desc = "The city that never sleeps"
     dest5.price = 900
     dest5.image = "bali.jpg"
+    dest5.offer = False
 
     dest6 = Destination()
     dest6.id = 6
@@ -43,6 +48,7 @@ def index(request):
     dest6.desc = "Land of the Rising Sun"
     dest6.price = 750
     dest6.image = "kashmir.jpg"
+    dest6.offer = False
 
     destinations = [dest1, dest2, dest3, dest4, dest5, dest6]
     return render(request, 'index.html', {'dests': destinations})
